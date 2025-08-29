@@ -1,5 +1,6 @@
 package br.com.alura.screematch;
 
+import br.com.alura.screematch.models.Episode;
 import br.com.alura.screematch.models.Serie;
 import br.com.alura.screematch.service.ConsumoAPI;
 import br.com.alura.screematch.service.DataConverter;
@@ -32,5 +33,11 @@ public class ScreematchApplication implements CommandLineRunner {
         var dataSerie = converter.GetData(data, Serie.class);
 
         System.out.println(dataSerie);
+
+        data = api.GetData("https://www.omdbapi.com/?t=gilmore+girls&Season=1&episode=10&apiKey=6585022c");
+
+        Episode episode = converter.GetData(data, Episode.class);
+
+        System.out.println(episode);
     }
 }
